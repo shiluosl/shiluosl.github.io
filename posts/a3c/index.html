@@ -1,0 +1,439 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C语言学习笔记 | 失落森林</title><meta name="keywords" content="C语言学习笔记"><meta name="author" content="失落森林"><meta name="copyright" content="失落森林"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="常量字面常量12331003.14 const修饰的常变量123456789#include&lt;stdio.h&gt;int main(void)&amp;#123;    int num &#x3D; 4;	printf(&quot;%d\n&quot;, num);    num &#x3D; 8;    printf(&quot;%d\n&quot;, num);	return 0;&amp;#125; 这里num还是一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习笔记">
+<meta property="og:url" content="https://s.shiluosl.top/posts/a3c/index.html">
+<meta property="og:site_name" content="失落森林">
+<meta property="og:description" content="常量字面常量12331003.14 const修饰的常变量123456789#include&lt;stdio.h&gt;int main(void)&amp;#123;    int num &#x3D; 4;	printf(&quot;%d\n&quot;, num);    num &#x3D; 8;    printf(&quot;%d\n&quot;, num);	return 0;&amp;#125; 这里num还是一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg">
+<meta property="article:published_time" content="2022-09-10T04:47:07.000Z">
+<meta property="article:modified_time" content="2022-09-29T14:05:41.046Z">
+<meta property="article:author" content="失落森林">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg"><link rel="shortcut icon" href="https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/wztubiao.jpg"><link rel="canonical" href="https://s.shiluosl.top/posts/a3c/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+      css: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C语言学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-29 22:05:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/shiluosl-cdn@1.0.9/css/cebianlan.css"><link rel="stylesheet" href="https://npm.elemecdn.com/shiluosl-cdn@1.0.9/css/guidangyangshi.css"><link rel="stylesheet" href="https://npm.elemecdn.com/shiluosl-cdn@1.1.0/css/wengzhangyangshi.css"><link rel="stylesheet" href="https://npm.elemecdn.com/shiluosl-cdn@1.1.0/css/jiazaijianbiantiao.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/shiluosl-cdn@1.0.4/css/yejiao.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/touxiang.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/shilinniao/cdn@1.0/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 番剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">失落森林</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 番剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-10T04:47:07.000Z" title="发表于 2022-09-10 12:47:07">2022-09-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-29T14:05:41.046Z" title="更新于 2022-09-29 22:05:41">2022-09-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a><strong>常量</strong></h1><h2 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a><strong>字面常量</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">100</span><br><span class="line">3.14</span><br></pre></td></tr></table></figure>
+<h2 id="const修饰的常变量"><a href="#const修饰的常变量" class="headerlink" title="const修饰的常变量"></a><strong>const修饰的常变量</strong></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">4</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, num);</span><br><span class="line">    num = <span class="number">8</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, num);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里num还是一个变量可以修改，我们在int前加上const</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  <span class="comment">//const 常属性</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> num = <span class="number">4</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, num);</span><br><span class="line">    num = <span class="number">8</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, num);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个时候运行会发现报错了，因为加了const后num就不能再修改了<br>虽然num有了const属性但他还是一个变量</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  <span class="comment">//const 常属性</span></span><br><span class="line">	ini arr[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;； <span class="comment">//创建一个数组arr里面10个元素</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行是没有问题的,如果改成这样</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  <span class="comment">//const 常属性</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> n = <span class="number">10</span>; <span class="comment">//n是变量，但又有常属性，所以n是常变量</span></span><br><span class="line">	ini arr[n] = &#123;<span class="number">0</span>&#125;； <span class="comment">//创建一个数组arr里面10个元素</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样会报错 <code>应输入常量表达式</code> 这时 <code>[]</code> 里应改成常量，n在这里是一个变量<br>在要使用常量的地方n是不能当常量的，但是让n表达一个不能变的量还是可以的</p>
+<h2 id="define-定义的标识符常量"><a href="#define-定义的标识符常量" class="headerlink" title="#define 定义的标识符常量"></a><code>#define</code> 定义的标识符常量</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 10 <span class="comment">//定义MAX是10</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    ini arr[MAX] = &#123;<span class="number">0</span>&#125;；</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, MAX);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里MAX是常量，值是10</p>
+<h2 id="枚举常量"><a href="#枚举常量" class="headerlink" title="枚举常量"></a>枚举常量</h2><p>枚举———一一列举</p>
+<p>比如性别：男，女，保密</p>
+<p>三原色：红，黄，蓝</p>
+<p>枚举关键字<code>enum</code></p>
+<p>现在用枚举的方式一一列举性别</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> //<span class="title">sex</span> 性别</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    MALE,    <span class="comment">//男</span></span><br><span class="line">    FEMALE,  <span class="comment">//女</span></span><br><span class="line">    SECRET   <span class="comment">//保密</span></span><br><span class="line">    <span class="comment">//MALE, FEMALE, SECRET就是所谓的枚举常量</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  </span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> <span class="title">s</span> =</span> MALE;  <span class="comment">//s表示变量，如果是男就赋值MALE，如果是女生就赋值FEMALE</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举常量是有值的</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> //<span class="title">sex</span> 性别</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    MALE,    <span class="comment">//男</span></span><br><span class="line">    FEMALE,  <span class="comment">//女</span></span><br><span class="line">    SECRET   <span class="comment">//保密</span></span><br><span class="line">    <span class="comment">//MALE, FEMALE, SECRET就是所谓的枚举常量</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, MALE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, FEMALE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, SECRET);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行会显示0，1，2 这些值默认是0，1，2且不可更改</p>
+<p>比如给FEMALE赋值10</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> //<span class="title">sex</span> 性别</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    MALE,    <span class="comment">//男</span></span><br><span class="line">    FEMALE,  <span class="comment">//女</span></span><br><span class="line">    SECRET   <span class="comment">//保密</span></span><br><span class="line">    <span class="comment">//MALE, FEMALE, SECRET就是所谓的枚举常量</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, MALE);</span><br><span class="line">    FEMALE = <span class="number">10</span>;  <span class="comment">//给FEMALE赋值10</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, FEMALE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, SECRET);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样会报错,说明枚举常量是不能改变的</p>
+<h1 id="字符串-转义字符-注释"><a href="#字符串-转义字符-注释" class="headerlink" title="字符串+转义字符+注释"></a><strong>字符串+转义字符+注释</strong></h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><strong>字符串</strong></h2><blockquote>
+<p>“hello world \n”</p>
+</blockquote>
+<p>这种由双引号引起来的一串字符称为字符串字面值，或者简称字符串</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line">    <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    <span class="string">&quot;&quot;</span>;  <span class="comment">//这也是字符串，叫空字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>字符串的结束标志是一个<code>\0</code>的转义字符。在计算字符串长度时<code>\0</code>是结束标志，不算作字符串内容。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>; <span class="comment">//创建一个char类型的数组名字叫arr1，把字符串abc存起来</span></span><br><span class="line">    <span class="type">char</span> arr2[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;  <span class="comment">//单引号引起来的叫字符，双引号引起来的叫字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr1);  <span class="comment">//打印字符串用%s,打印数组arr1</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr2);  <span class="comment">//打印数组arr2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行会显示</p>
+<p><img src="https://s2.loli.net/2022/08/30/uavt8WFDo4jLJkX.png" alt="Snipaste_2022-08-30_16-06-27.png"></p>
+<p>为什么打印 <code>arr2</code> 数组的时候后面会显示 <code>烫烫烫</code> 呢?</p>
+<p>我们按 <code>F10</code> 一步一步来执行代码</p>
+<p><img src="https://s2.loli.net/2022/08/30/8qs76YMamQbvc4d.png" alt="Snipaste_2022-08-30_16-18-22.png"></p>
+<p>运行到这将 <code>arr1</code> ，<code>arr2</code> 两个数组创建好，打开监视器看看数组里有什么</p>
+<p><img src="https://s2.loli.net/2022/08/30/6yazrIEJYlwbOZh.png" alt="Snipaste_2022-08-30_16-19-20.png"></p>
+<p><img src="https://s2.loli.net/2022/08/30/tLmoUGWsn1quNHr.png" alt="Snipaste_2022-08-30_16-17-47.png"></p>
+<p>可以看到 <code>arr1</code> 中有四个元素多了一个 <code>\0</code> 而 <code>arr2</code> 中只有三个元素，如果我们在 <code>arr2</code> 后面加上一个<code>\0</code>会怎样</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>; </span><br><span class="line">    <span class="type">char</span> arr2[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;  <span class="comment">//在后面加个\0，放0也行因为\0的值就是0  &#123;&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, 0&#125;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr1);  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, arr2);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/30/McRyV4OYgLodlfp.png" alt="Snipaste_2022-08-30_16-34-01.png"></p>
+<p>可以看到 <code>烫烫烫</code> 消失了<br>字符串 <code>abc</code> 中不仅仅有字符<code>a</code>,<code>b</code>,<code>c</code>还隐藏了一个<code>\0</code>它的值是<code>0</code> ,表示<code>字符串的结束标志</code></p>
+<blockquote>
+<p>这里字符<code>a</code>,<code>b</code>,<code>c</code>都是有值的分别对应<code>97</code>,<code>98</code>,<code>99</code>，那这些值怎么来的呢。<br>数据在计算机上存储的时候，存储的是2进制。怎么存储这些字符？<br>有人就给这些字符编了个值，像这样给每一种字符都编一个值的这种编码方式叫<code>ASCII编码</code>,字符所对应的值叫<code>ASCII码值</code>。<code>\0</code>对应的<code>ASCII码值</code>就是<code>0</code>。</p>
+<p>在打印<code>arr2</code>时按顺序打印<code>a</code>,<code>b</code>,<code>c</code>由于<code>c</code>后面不是<code>\0</code>所以还会继续打印，那<code>c</code>的后面是什么呢？这个我们也不知道所以它会打印一些随机值<code>烫烫烫</code>这样的东西，如果我们主动放一个<code>\0</code>相当于加了个结束标志，打印到<code>c</code>就不会再打印了就不会出现<code>烫烫烫</code>这样的东西</p>
+<p>字符串的结束标志是一个<code>\0</code>的<code>转义字符</code>。在计算字符串长度时<code>\0</code>是结束标志，不算作字符串内容。</p>
+</blockquote>
+<p>再举个例子求<code>arr1``arr2</code>字符串长度</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span> <span class="comment">//strlen所用到的头文件</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>; </span><br><span class="line">    <span class="type">char</span> arr2[] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">strlen</span>(arr1));  <span class="comment">//strlen表示计算字符串长度</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">strlen</span>(arr2));  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/30/6LIgeRNbVKMBPs8.png" alt="Snipaste_2022-08-30_17-31-13.png"></p>
+<p><code>strlen</code>在计算字符串长度的时候会从第一个字符开始到<code>\0</code>结束<br><code>3</code>很好理解从<code>a</code>开始数到<code>c</code>，<code>c</code>后面是<code>\0</code>结束<br><code>39</code>是怎么来的呢？和上面一样从<code>a</code>开始数到<code>c</code>，由于没有遇到<code>\0</code>就继续往后面数直到遇见为止，所以这是个随机数下次运行代码可能就变成别的数了</p>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p><code>转义字符</code>：转变原来的意思，<code>n</code>表示一个字符，<code>\n</code>表示换行</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">转义字符</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\\</td>
+<td style="text-align:left">用于表示一个反斜杠，防止它被解释为一个转义序列符。</td>
+</tr>
+<tr>
+<td style="text-align:center">\a</td>
+<td style="text-align:left">警告字符，蜂鸣</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:left">退格</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:left">换行</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:left">退格</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:left">回车</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:left">换页</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:left">水平制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:left">垂直制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\‘</td>
+<td style="text-align:left">单引号</td>
+</tr>
+<tr>
+<td style="text-align:center">\“</td>
+<td style="text-align:left">双引号</td>
+</tr>
+<tr>
+<td style="text-align:center">\ddd</td>
+<td style="text-align:left">ddd表示1-3位八进制数字。如\130 x</td>
+</tr>
+<tr>
+<td style="text-align:center">\xdd</td>
+<td style="text-align:left">dd表示2个十六进制数字。如\x30 0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="选择语句"><a href="#选择语句" class="headerlink" title="选择语句"></a><strong>选择语句</strong></h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;你要好好学习吗?(1/0)&gt;:&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;年薪百万\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;卖红薯\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a><strong>循环语句</strong></h1><p>while语句</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; <span class="number">2000</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;敲代码 %d\n&quot;</span>, i);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">if</span>(i &gt;= <span class="number">2000</span>);</span><br><span class="line">	    <span class="built_in">printf</span>(<span class="string">&quot;年薪百万\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h1><h1 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h1><p>加法运算</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	sum = a + b;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, sum);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写成函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	sum = Add(a, b);  <span class="comment">//把a,b的值给x,y</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, sum);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">Add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> z = x + y;</span><br><span class="line">	<span class="keyword">return</span> z; <span class="comment">//把z的值返回给sum</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a><strong>数组</strong></h1><p>数组：一组相同类型元素的集合</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;<span class="comment">//定义一个整形数组，最多放10个元素</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/09/10/SNQW9qHgiu8Yao5.png" alt="Snipaste_2022-09-10_21-01-19.png"></p>
+<p>数组里的元素都有下标从0开始</p>
+<p><img src="https://s2.loli.net/2022/09/10/BxStOkAyNCIrY5z.png" alt="Snipaste_2022-09-10_21-39-26.png"></p>
+<p>下标的方式访问元素<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, arr[<span class="number">0</span>]); <span class="comment">//访问下标0的元素，下标0对应的就是1</span></span><br></pre></td></tr></table></figure></p>
+<p>打印数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; <span class="number">10</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i]);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a><strong>操作符</strong></h1><p>算数操作符<br>&gt;</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://s.shiluosl.top">失落森林</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://s.shiluosl.top/posts/a3c/">https://s.shiluosl.top/posts/a3c/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://s.shiluosl.top" target="_blank">失落森林</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/4624/"><img class="prev-cover" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" onerror="onerror=null;src='https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">博客搭建笔记</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/touxiang.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/shilinniao/cdn@1.0/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">失落森林</div><div class="author-info__description">欢迎来到我的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">字面常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const%E4%BF%AE%E9%A5%B0%E7%9A%84%E5%B8%B8%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">const修饰的常变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#define-%E5%AE%9A%E4%B9%89%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%E5%B8%B8%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">#define 定义的标识符常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E5%B8%B8%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text">枚举常量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6-%E6%B3%A8%E9%87%8A"><span class="toc-number">2.</span> <span class="toc-text">字符串+转义字符+注释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.1.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">转义字符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.</span> <span class="toc-text">选择语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.</span> <span class="toc-text">循环语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">7.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">8.</span> <span class="toc-text">操作符</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/4624/" title="博客搭建笔记"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" onerror="this.onerror=null;this.src='https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/404.jpg'" alt="博客搭建笔记"/></a><div class="content"><a class="title" href="/posts/4624/" title="博客搭建笔记">博客搭建笔记</a><time datetime="2022-09-20T05:26:54.000Z" title="发表于 2022-09-20 13:26:54">2022-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a3c/" title="C语言学习笔记"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" onerror="this.onerror=null;this.src='https://npm.elemecdn.com/shiluosl-cdn@1.1.3/img/404.jpg'" alt="C语言学习笔记"/></a><div class="content"><a class="title" href="/posts/a3c/" title="C语言学习笔记">C语言学习笔记</a><time datetime="2022-09-10T04:47:07.000Z" title="发表于 2022-09-10 12:47:07">2022-09-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By 失落森林</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.6/translate/tw_cn.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/shiluosl/cdn@1.0/js/title.js"></script><div class="aplayer no-destroy" data-id="1708664797" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script src="https://cdn.jsdelivr.net/gh/shilinniao/cdn@1.0/js/shubiaoyidongtx.js"></script><script data-pjax src="https://npm.elemecdn.com/shiluosl-cdn@1.1.1/js/dingbujiazaitiao.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '93c3068884fc4905815e37114369b420';
+  var gaud_map_key = 'd080aa9f3c2b9bf38b037b448984eb91';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.6534116,27.96920845';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/Frame-Hexo-blue.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/Theme-Butterfly-6513df.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/CDN-jsDelivr-orange.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在湘进行备案" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/%E6%B9%98ICP%E5%A4%87.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/Source-Github-d021d6.svg" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://npm.elemecdn.com/shiluosl-cdn@1.0.5/img/Copyright-BY--NC--SA%204.svg" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/shiluosl-cdn@1.0.4/js/yjjsq.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/a3c/" alt=""><img width="48" height="48" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-10</span><a class="blog-slider__title" href="posts/a3c/" alt="">C语言学习笔记</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="posts/a3c/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/4624/" alt=""><img width="48" height="48" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/banner.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-20</span><a class="blog-slider__title" href="posts/4624/" alt="">博客搭建笔记</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="posts/4624/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '700ms');
+    arr[i].setAttribute('data-wow-delay', '100ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
