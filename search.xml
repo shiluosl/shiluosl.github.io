@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>青龙面板搭建</title>
+      <link href="/posts/ee35/"/>
+      <url>/posts/ee35/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h1><p><a href="https://www.bt.cn/new/download.html">宝塔面板下载</a></p><p><img src="https://npm.elemecdn.com/shiluosl-cdn@1.1.10/img/wz/qinglong/1.png" alt=""></p><p>根据自己的系统选择不同的脚本，安装完成后登录面板</p><h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><p><img src="https://npm.elemecdn.com/shiluosl-cdn@1.1.10/img/wz/qinglong/2.png" alt=""></p><p>安装时间比较久，耐心等代码跑完</p><h1 id="安装青龙面板"><a href="#安装青龙面板" class="headerlink" title="安装青龙面板"></a>安装青龙面板</h1><h2 id="拉取并启动面板"><a href="#拉取并启动面板" class="headerlink" title="拉取并启动面板"></a>拉取并启动面板</h2><p>想改青龙面板端口的话就把其中的 5702:5700 改成 XXXX:5700即可，冒号后的5700别动！</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -dit \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/config:/ql/config \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/log:/ql/log \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/db:/ql/db \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/scripts:/ql/scripts \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/jbot:/ql/jbot \</span></span><br><span class="line"><span class="language-bash">-v /root/ql/repo:/ql/repo \</span></span><br><span class="line"><span class="language-bash">-p 5702:5700 \</span></span><br><span class="line"><span class="language-bash">-e ENABLE_HANGUP=<span class="literal">true</span> \</span></span><br><span class="line"><span class="language-bash">-e ENABLE_WEB_PANEL=<span class="literal">true</span> \</span></span><br><span class="line"><span class="language-bash">--name ql \</span></span><br><span class="line"><span class="language-bash">--hostname ql \</span></span><br><span class="line"><span class="language-bash">--privileged=<span class="literal">true</span> \</span></span><br><span class="line"><span class="language-bash">--restart always \</span></span><br><span class="line"><span class="language-bash">whyour/qinglong:2.14.4</span></span><br></pre></td></tr></table></figure><h2 id="登录面板"><a href="#登录面板" class="headerlink" title="登录面板"></a>登录面板</h2><p>浏览器输入服务器ip：端口号（如果你修改了填你自己的端口号）</p><p>比如：120.58.223.68:5702</p><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>进入容器</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it ql bash <span class="comment">#ql为容器名根据自己容器修改</span></span><br></pre></td></tr></table></figure><p>一键安装依赖</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://git.metauniverse-cn.com/https://raw.githubusercontent.com/shufflewzc/QLDependency/main/<span class="keyword">Shell</span><span class="language-bash">/QLOneKeyDependency.sh | sh</span></span><br></pre></td></tr></table></figure><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/bean661/utils/main/QLOneKeyDependency_easy.sh | sh</span><br></pre></td></tr></table></figure><p>两个都执行一下</p><h2 id="拉取脚本库"><a href="#拉取脚本库" class="headerlink" title="拉取脚本库"></a>拉取脚本库</h2><p>以Faker库为例</p><p>在<strong>青龙面板</strong>-<strong>定时任务</strong>-右上角点击<strong>添加任务</strong></p><p>名称随便填</p><p>命令</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://git.metauniverse-cn.com/https://github.com/shufflewzc/faker2.git <span class="string">&quot;jd_|jx_|gua_|jddj_|jdCookie&quot;</span> <span class="string">&quot;activity|backUp&quot;</span> <span class="string">&quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic|depend|h5sts&quot;</span> <span class="string">&quot;main&quot;</span></span><br></pre></td></tr></table></figure><p>定时规则填 <code>0 0 0 * * *</code></p><p><img src="https://npm.elemecdn.com/shiluosl-cdn@1.1.10/img/wz/qinglong/3.png" alt=""></p><p>然后确定运行一下，库就拉好了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 青龙 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 青龙 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>博客搭建笔记</title>
       <link href="/posts/4624/"/>
       <url>/posts/4624/</url>
