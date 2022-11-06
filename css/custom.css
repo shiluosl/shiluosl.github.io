@@ -186,7 +186,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background-color: #425aef;
+    background-color: #14b5d5;
     border-radius: 2em;
   }
   
@@ -196,7 +196,7 @@
   
   ::-moz-selection {
     color: #fff;
-    background-color: #425aef;
+    background-color: #14b5d5;
   }
   
   /* 音乐播放器 */
